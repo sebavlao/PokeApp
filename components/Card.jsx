@@ -4,6 +4,7 @@ import { useGetPokeInfo } from "../hooks/useGetPokeInfo";
 import { CardSkeleton } from "./CardSkeleton";
 import { colorClasses, contrastBlack } from "../utils/colors";
 
+
 export const Card = ({url}) => {
     const {pokemon, color, loading} = useGetPokeInfo(url)
 

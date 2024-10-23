@@ -4,9 +4,13 @@ import { TeamPaginationContext } from "../context/TeamPaginationContext"
 export const usePagination = () => {
     const {pagination, setPagination} = useContext(TeamPaginationContext)
 
-    const handleSetPages = () => {
+    const handleNextPage = () => {
         setPagination(prevPagination => prevPagination + 20)
     }
 
-    return {pagination, handleSetPages}
+    const handlePreviousPage = () => {
+        setPagination(prevPagination => prevPagination - 20)
+    }
+
+    return {pagination, handleNextPage, handlePreviousPage}
 }

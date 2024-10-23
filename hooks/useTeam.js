@@ -10,10 +10,7 @@ export const useTeam = () => {
             return "none"
         }
 
-
         const newTeam = [...team, id]
-
-        console.log(newTeam)
 
         setTeam(newTeam)
         await AsyncStorage.setItem("team", JSON.stringify(newTeam))
@@ -21,8 +18,6 @@ export const useTeam = () => {
 
     const removeToTeam = async position => {
         const newTeam = team.filter((_, index) => index !== position)
-
-        console.log(newTeam)
 
         setTeam(newTeam)
         await AsyncStorage.setItem("team", JSON.stringify(newTeam))

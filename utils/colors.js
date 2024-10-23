@@ -11,4 +11,4 @@ export const colorClasses = {
     yellow: 'bg-poke-yellow',
 };
 
-export const contrastBlack = ["white", "yellow", "gray"]
+export const contrastBlack = ["white", "yellow"]
