@@ -11,7 +11,7 @@ export default function MiEquipo() {
             <Text>Tu equipo</Text>
             {team.length > 0 
                 ? team.map((memberId, index) => (
-                    <CardTeam key={`member-${index}`} url={POKE_API.defaults.baseURL + `pokemon/${memberId}`} id={memberId}/>
+                    <CardTeam key={`${memberId}-member-${index}`} url={POKE_API + `pokemon/${memberId}`} position={index}/>
                 )) 
                 : ""
             }

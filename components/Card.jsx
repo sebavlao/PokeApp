@@ -10,7 +10,7 @@ export const Card = ({url}) => {
     if (loading) return <CardSkeleton/>
 
     return (
-        <Link asChild href={`/${pokemon.id}`}>
+        <Link asChild href={`/pokemon/${pokemon.id}`}>
             <Pressable className={`flex flex-row ${colorClasses[color]} w-1/2 overflow-hidden rounded-sm`}>
                 <View className="w-7/12">
                     <Text numberOfLines={1} className={`font-bold truncate p-1 text-sm ${contrastBlack.includes(color) ? "text-black" : "text-white"}`}>

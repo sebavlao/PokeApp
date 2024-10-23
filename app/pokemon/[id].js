@@ -1,13 +1,13 @@
 import { useLocalSearchParams } from "expo-router";
 import { Image, Text, View } from "react-native";
-import { POKE_API } from "../api/api";
-import { ContainerInfo } from "../components/ContainerInfo";
-import { useGetPokeInfo } from "../hooks/useGetPokeInfo";
-import { colorClasses } from "../utils/colors";
+import { POKE_API } from "../../api/api";
+import { ContainerInfo } from "../../components/ContainerInfo";
+import { useGetPokeInfo } from "../../hooks/useGetPokeInfo";
+import { colorClasses } from "../../utils/colors";
 
 export default function PokeInfo() {
     const { id } = useLocalSearchParams()
-    const {pokemon, color, loading} = useGetPokeInfo(POKE_API.defaults.baseURL + `pokemon/${id}`)
+    const {pokemon, color, loading} = useGetPokeInfo(POKE_API + `pokemon/${id}`)
 
     if (loading) return <Text>Cargando...</Text>
 
