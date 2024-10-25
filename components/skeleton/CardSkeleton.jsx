@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { Animated, Text, View } from 'react-native'
-import { ImageSkeleton } from './svg/ImageSkeleton'
+import { ImageSkeleton } from '../svg/ImageSkeleton'
 
 export const CardSkeleton = () => {
   const opacity = useRef(new Animated.Value(0.5)).current

@@ -8,10 +8,13 @@ export const TeamPaginationContext = createContext()
 export const TeamPaginationProvider = ({children}) => {
   const [team, setTeam] = useState()
   const [pagination, setPagination] = useState()
+  const [currentPage, setCurrentPage] = useState()
+  const [currentPageNumber, setCurrentPageNumber] = useState()
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    setPagination(0)
+    setCurrentPage(POKE_API + "pokemon")
+    setCurrentPageNumber(1)
 
     const loadTeam = async () => {
       const teamStorage = await AsyncStorage.getItem("team")
@@ -32,7 +35,7 @@ export const TeamPaginationProvider = ({children}) => {
   if (loading) return <Text>Cargando...</Text>
 
   return (
-    <TeamPaginationContext.Provider value={{team, pagination, setPagination, setTeam}}>
+    <TeamPaginationContext.Provider value={{team, pagination, currentPage, currentPageNumber, setCurrentPage, setCurrentPageNumber, setPagination, setTeam}}>
       {children}
     </TeamPaginationContext.Provider>
   )

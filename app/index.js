@@ -3,20 +3,20 @@ import { Text, View, FlatList } from "react-native";
 import { Card } from "../components/Card";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import axios from "axios"
-import { POKE_API } from "../api/api";
 import { usePagination } from "../hooks/usePagination";
 
 export default function Index () {
     const [pokemons, setPokemons] = useState([])
-    const { pagination } = usePagination()
+    const { currentPage, handlePagination } = usePagination()
     const [loading, setLoading] = useState(true)
     const insets =  useSafeAreaInsets()
 
     useEffect(() => {
         setLoading(true)
-        axios.get(POKE_API + `pokemon?offset=${pagination}`)
+        axios.get(currentPage)
             .then(res => {
                 setPokemons(res.data.results)
+                handlePagination(res.data.next, res.data.previous)
             })
             .catch(err => {
                 console.log(err)
@@ -24,7 +24,7 @@ export default function Index () {
             .finally(() => {
                 setLoading(false)
             })
-    }, [pagination])
+    }, [currentPage])
 
     if (loading) return <Text></Text>
 

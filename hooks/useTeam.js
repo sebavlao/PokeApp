@@ -7,13 +7,15 @@ export const useTeam = () => {
 
     const addToTeam = async id => {
         if (team.length >= 6) {
-            return "none"
+            return alert("Tu equipo no puede ser formado por más de 6 pokemones")
         }
 
         const newTeam = [...team, id]
 
         setTeam(newTeam)
         await AsyncStorage.setItem("team", JSON.stringify(newTeam))
+
+        return alert("Se ha agregado correctamente al equipo" + (team.length >= 5 ? ". No puedes agregar más pokemones al mismo." : ""));
     }
 
     const removeToTeam = async position => {

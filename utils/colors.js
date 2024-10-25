@@ -1,14 +1,14 @@
-export const colorClasses = {
-    black: 'bg-poke-black',
-    blue: 'bg-poke-blue',
-    brown: 'bg-poke-brown',
-    gray: 'bg-poke-gray',
-    green: 'bg-poke-green',
-    pink: 'bg-poke-pink',
-    purple: 'bg-poke-purple',
-    red: 'bg-poke-red',
-    white: 'bg-poke-white',
-    yellow: 'bg-poke-yellow',
-};
+export const colors = {
+    black: '#0d0d0d',
+    blue: '#3490dc',
+    brown: '#8b4513',
+    gray: '#6c757d',
+    green: '#38c172',
+    pink: '#e83e8c',
+    purple: '#6f42c1',
+    red: '#e3342f',
+    white: '#f8f9fa',
+    yellow: '#ffed4a',
+}
 
 export const contrastBlack = ["white", "yellow"]

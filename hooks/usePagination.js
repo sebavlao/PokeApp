@@ -2,15 +2,38 @@ import { useContext } from "react"
 import { TeamPaginationContext } from "../context/TeamPaginationContext"
 
 export const usePagination = () => {
-    const {pagination, setPagination} = useContext(TeamPaginationContext)
+    const {
+        currentPage, 
+        pagination, 
+        currentPageNumber, 
+        setCurrentPage, 
+        setCurrentPageNumber, 
+        setPagination
+    } = useContext(TeamPaginationContext)
 
-    const handleNextPage = () => {
-        setPagination(prevPagination => prevPagination + 20)
+    const handlePagination = (nextPage, previousPage) => {
+        setPagination({
+            next: nextPage,
+            previous: previousPage
+        })
     }
 
-    const handlePreviousPage = () => {
-        setPagination(prevPagination => prevPagination - 20)
+    const handleNextPage = url => {
+        setCurrentPage(url)
+        setCurrentPageNumber(currentPageNumber + 1)
     }
 
-    return {pagination, handleNextPage, handlePreviousPage}
+    const handlePreviousPage = url => {
+        setCurrentPage(url)
+        setCurrentPageNumber(currentPageNumber - 1)
+    }
+
+    return {
+        currentPage, 
+        currentPageNumber, 
+        pagination,
+        handlePagination, 
+        handleNextPage, 
+        handlePreviousPage
+    }
 }
